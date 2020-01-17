@@ -1,0 +1,62 @@
+syntax = "proto2";
+
+message Literal5 {
+
+  enum Literal { L31 = 49; };
+  required Literal literal = 1;
+}
+
+message Optional4 { optional Literal5 child = 1; }
+
+message OneOrMore3 {
+
+  required Optional4 one = 1;
+  required Optional4 more = 2;
+}
+
+message Optional2 { optional OneOrMore3 child = 1; }
+
+message Literal7 {
+
+  enum Literal { L30 = 48; };
+  required Literal literal = 1;
+}
+
+message Literal9 {
+
+  enum Literal { L30 = 48; };
+  required Literal literal = 1;
+}
+
+message RESet11 {
+  enum Set {
+    L30 = 48;
+    L31 = 49;
+  };
+  required Set set = 1;
+}
+
+message Star10 { repeated RESet11 child = 1; }
+
+message Then8 {
+  required Literal9 literal9 = 1;
+  required Star10 star10 = 2;
+}
+
+message Or6 {
+  oneof T {
+    Literal7 literal7 = 1;
+    Then8 then8 = 2;
+  };
+}
+
+message Then1 {
+  required Optional2 optional2 = 1;
+  required Or6 or6 = 2;
+}
+
+message RootHelper {
+  oneof T { Then1 then1 = 1; };
+}
+
+message Root { repeated RootHelper rh = 1; }
