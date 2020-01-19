@@ -1,10 +1,7 @@
 # Did I say that I can't write makefiles?
 
 PROTOC=./external/bin/protoc
-CXX=clang++-7
-LD=clang++-7
 CXXFLAGS=-O3 -fPIC -std=c++11 -I. -I./external/include -I./external/include/libprotobuf-mutator
-#CXXFLAGS=-fsanitize-coverage=trace-cmp,trace-pc-guard -fPIC -std=c++11 -I. -I./external/include -I./external/include/libprotobuf-mutator
 
 .PHONY: clean
 
