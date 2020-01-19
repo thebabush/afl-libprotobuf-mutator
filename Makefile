@@ -2,6 +2,9 @@
 
 PROTOC=./external/bin/protoc
 CXXFLAGS=-O3 -fPIC -std=c++11 -I. -I./external/include -I./external/include/libprotobuf-mutator
+CXX=clang++
+CC=clang
+LD=$(CXX)
 
 .PHONY: clean
 
